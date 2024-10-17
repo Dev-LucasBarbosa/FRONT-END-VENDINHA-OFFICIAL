@@ -1,0 +1,38 @@
+.lista-usuario-page {
+    /* Link da imagem: https://pics.alphacoders.com/pictures/view/234538#google_vignette */
+    background-image: url('/public/imagens/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para empilhar o conteúdo */
+}
+.lista-usuarios {
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo semitransparente para a tabela */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

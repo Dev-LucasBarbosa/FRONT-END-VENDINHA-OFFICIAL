@@ -1,0 +1,46 @@
+.cadastro-usuario-page {
+    /*link da imagem: https://pics.alphacoders.com/pictures/view/234538#google_vignette*/
+    background-image: url('/public/imagens/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formulario{
+    background-color: #f88452;
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 30px 40px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 15px;
+    
+}
+
+input{
+    border-radius: 20px;
+    border: 1px solid;
+}
+
+input[type='text'], select{
+    width: 100%;
+
+}
+
+input[type='email'], select{
+    width: 100%;
+    
+}
+input[type='password'], select{
+    width: 100%;
+    
+}
+
+input[type='button'], select{
+    width: 100%;
+    
+}
