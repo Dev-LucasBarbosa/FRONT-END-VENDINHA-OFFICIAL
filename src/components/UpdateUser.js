@@ -86,7 +86,7 @@ function AtualizaUser() {
                     <h2>Atualizar Cadastro</h2>
                     <label htmlFor="userId">ID do Usuário</label>
                     <input
-                        type="text"
+                        type="hidden"
                         name="userId"
                         id="userId"
                         value={userId}

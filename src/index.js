@@ -21,6 +21,7 @@ root.render(
           <Route path='/cadastro-usuario' element={<CadastroUser />} />
           <Route path='/listagem-usuario' element={<ListaUser />} />
           <Route path='/atualizar-usuario' element={<UpdateUser userId={usuarioIdParaAtualizar} loggedUserId={usuarioIdLogado} />} />
+          <Route path="/atualizar-usuario/:id" component={UpdateUser} />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

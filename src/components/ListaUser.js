@@ -46,6 +46,7 @@ function ListaUsuarios() {
                         <th>CPF/CNPJ</th>
                         <th>Senha</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,7 @@ function ListaUsuarios() {
                             <td>{usuario.cpf_cnpj}</td>
                             <td>{usuario.password}</td> {/* Cuidado com a exibição da senha */}
                             <td>{usuario.is_active ? 'Ativo' : 'Inativo'}</td>
+                            <td><button >Atuaz</button></td>
                         </tr>
                     ))}
                 </tbody>
