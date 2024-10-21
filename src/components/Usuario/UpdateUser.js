@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'; 
 import './UpdateUser.css';
 
-function AtualizaUser() {
-    const [userId, setUserId] = useState('');
+
+
+function UpdateUser() {
+    const { id } = useParams(); // Obtém o ID do usuário da URL
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [cpf_cnpj, setCpfCnpj] = useState('');
@@ -11,22 +14,25 @@ function AtualizaUser() {
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
-        if (userId) {
-            fetchUserData(userId);
+        if (id) {
+            fetchUserData(id);
         }
-    }, [userId]);
+    }, [id]);
 
     const fetchUserData = async (id) => {
-        const response = await fetch(`http://localhost:8081/api/usuario/${id}`);
-        const data = await response.json();
-        if (response.ok) {
+        try {
+            const response = await fetch(`http://localhost:8081/api/usuario/${id}`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar dados do usuário.');
+            }
+            const data = await response.json();
             setName(data.name);
             setEmail(data.email);
             setCpfCnpj(data.cpf_cnpj);
             setIsActive(data.is_active);
-        } else {
-            setErrorMessage('Erro ao buscar dados do usuário.');
-            console.error('Erro ao buscar dados do usuário:', data);
+        } catch (error) {
+            setErrorMessage(error.message);
+            console.error('Erro ao buscar dados do usuário:', error);
         }
     };
 
@@ -39,7 +45,7 @@ function AtualizaUser() {
         setErrorMessage(''); // Limpa mensagens de erro anteriores
 
         // Validação de entrada
-        if (!userId) {
+        if (!id) {
             setErrorMessage('Por favor, insira o ID do usuário.');
             return;
         }
@@ -56,26 +62,31 @@ function AtualizaUser() {
             return;
         }
 
-        const response = await fetch(`http://localhost:8081/api/usuario/${userId}`, {
-            method: 'PUT',
-            body: JSON.stringify({
-                name,
-                email,
-                password: senha,
-                is_active: isActive ? 1 : 0,
-                cpf_cnpj,
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+        try {
+            const response = await fetch(`http://localhost:8081/api/usuario/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    name,
+                    email,
+                    password: senha,
+                    is_active: isActive ? 1 : 0,
+                    cpf_cnpj,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
-        const resultado = await response.json();
-        if (response.ok) {
-            alert('Atualização realizada com sucesso!');
-        } else {
-            setErrorMessage('Erro ao atualizar usuário: ' + (resultado.message || 'Verifique os dados e tente novamente.'));
-            console.error('Erro ao atualizar usuário:', resultado);
+            const resultado = await response.json();
+            if (response.ok) {
+                alert('Atualização realizada com sucesso!');
+            } else {
+                setErrorMessage('Erro ao atualizar usuário: ' + (resultado.message || 'Verifique os dados e tente novamente.'));
+                console.error('Erro ao atualizar usuário:', resultado);
+            }
+        } catch (error) {
+            setErrorMessage('Erro ao atualizar usuário: ' + error.message);
+            console.error('Erro ao atualizar usuário:', error);
         }
     };
 
@@ -84,13 +95,11 @@ function AtualizaUser() {
             <div className="form-container">
                 <form id="formulario">
                     <h2>Atualizar Cadastro</h2>
-                    <label htmlFor="userId">ID do Usuário</label>
                     <input
                         type="hidden"
                         name="userId"
                         id="userId"
-                        value={userId}
-                        onChange={(e) => setUserId(e.target.value)}
+                        value={id}
                     />
 
                     <label htmlFor="name">Nome</label>
@@ -149,4 +158,4 @@ function AtualizaUser() {
     );
 }
 
-export default AtualizaUser;
+export default UpdateUser;
