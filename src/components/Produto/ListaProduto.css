@@ -11,7 +11,7 @@
     align-items: center;
     flex-direction: column; /* Para empilhar o conteúdo */
 }
-.lista-usuarios {
+.lista-produtos {
     margin: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Fundo semitransparente para a tabela */
     padding: 20px;
