@@ -1,0 +1,63 @@
+.navbar {
+    background-color: #f88452;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Mantém a navbar horizontal */
+}
+
+.navbar li {
+    position: relative; /* Necessário para posicionar o dropdown */
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.dropdown-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: inherit; /* Mantém o mesmo tamanho da fonte */
+}
+
+.dropdown {
+    position: absolute; /* Posiciona o dropdown relativo ao item pai */
+    background-color: #f88452; /* Cor de fundo do dropdown */
+    margin-top: 5px; /* Espaço acima do dropdown */
+    padding: 10px 0; /* Espaçamento interno, apenas vertical */
+    border-radius: 5px; /* Bordas arredondadas */
+    z-index: 1; /* Garante que o dropdown fique acima dos outros elementos */
+    display: none; /* Inicialmente oculto */
+}
+
+.dropdown li {
+    margin: 0; /* Remove margem dos itens do dropdown */
+}
+
+.dropdown a {
+    display: block; /* Faz com que cada link ocupe toda a largura */
+    padding: 5px 15px; /* Espaçamento interno */
+    color: white; /* Cor do texto */
+}
+
+.dropdown a:hover {
+    background-color: #e5733f; /* Cor de fundo ao passar o mouse */
+}
+
+/* Mostrar dropdown quando ativado */
+.navbar li:hover .dropdown {
+    display: block; /* Exibe o dropdown ao passar o mouse sobre o item pai */
+}

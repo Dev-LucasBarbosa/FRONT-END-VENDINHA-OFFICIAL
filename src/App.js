@@ -1,9 +1,11 @@
 import './App.css';
+import Navbar from './components/Navbar';
 
 
 function App() {
   return(
-    <div className="App">      
+    <div className="App"> 
+      <Navbar /> 
       <h3 id='title'>Bem-vindo ao Supermercado 'Extra'!</h3>
       <p>
         No Supermercado 'Extra', você encontra tudo para a sua casa em um só lugar! 
