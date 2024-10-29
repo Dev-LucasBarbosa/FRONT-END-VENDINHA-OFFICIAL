@@ -90,7 +90,7 @@ function CadastroVenda() {
                 setUserId('');
                 setProdutos([]);
             } else {
-                setErrorMessage('Erro ao realizar a venda. Tente novamente.');
+                setErrorMessage('Quantidade indisponível.');
                 console.log(resposta);
             }
         } catch (error) {

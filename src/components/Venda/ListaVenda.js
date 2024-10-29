@@ -51,8 +51,8 @@ function ListaVenda() {
                     {vendas.map((venda) => (
                         <tr key={venda.id}>
                             <td>{venda.id}</td>
-                            <td>{venda.user.name}</td>
-                            <td>{venda.venda}</td>
+                            <td>{venda.user_name}</td>
+                            <td>{venda.product_name}</td>
                             <td>{venda.quantity}</td>
                             <td>{venda.price}</td>
                         </tr>
